@@ -1,0 +1,32 @@
+<h1><strong><%= @inventory.name %></strong></h1>
+
+<h2>Items</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th>Quantity</th>
+
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for item <- @items do %>
+    <tr>
+      <td><%= item.name %></td>
+
+      <td><%= item.quantity %></td>
+
+      <td>
+        <span><%= link "Edit |", to: Routes.item_path(@conn, :edit, @inventory.id, item.id) %></span>
+        <span><%= link "Delete", to: Routes.item_path(@conn, :delete, @inventory.id, item.id), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Item |", to: Routes.item_path(@conn, :new, @inventory.id) %></span>
+<span><%= link "Back", to: Routes.inventory_path(@conn, :index) %></span>
