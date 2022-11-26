@@ -26,8 +26,8 @@ defmodule Anbar.Inventories.Item do
   defp validate_name(changeset) do
     changeset
     |> validate_length(:name, min: 1, max: 80, message: "Item name should be between 1 to 80")
-    |> validate_format(:name, ~r/^[[:alnum:][:space:]-_]+$/u,
-      message: "Item name can contain alphanumeric, space, - and _ signs"
+    |> validate_format(:name, ~r/^[[:print:]]+$/u,
+      message: "Item name can contain all printing characters"
     )
   end
 
