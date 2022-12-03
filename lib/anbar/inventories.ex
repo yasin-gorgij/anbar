@@ -114,15 +114,15 @@ defmodule Anbar.Inventories do
   end
 
   @doc """
-  Returns the list of items.
+  Returns the list of inventory items.
 
   ## Examples
 
-      iex> list_items()
+      iex> list_inventory_items()
       [%Item{}, ...]
 
   """
-  def list_items(user_id, inventory_id) do
+  def list_inventory_items(user_id, inventory_id) do
     user_id
     |> get_inventory!(inventory_id)
     |> Repo.preload([:items])

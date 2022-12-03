@@ -34,7 +34,7 @@ defmodule AnbarWeb.InventoryController do
     id = String.to_integer(id)
     inventory = Inventories.get_inventory!(user_id, id)
 
-    items = Inventories.list_items(user_id, inventory.id)
+    items = Inventories.list_inventory_items(user_id, inventory.id)
 
     render(conn, "show.html", inventory: inventory, items: items)
   end
