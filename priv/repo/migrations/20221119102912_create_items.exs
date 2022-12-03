@@ -5,7 +5,7 @@ defmodule Anbar.Repo.Migrations.CreateItems do
     create table(:items) do
       add :name, :string, null: false
       add :quantity, :integer, null: false
-      add :inventory_id, references(:items), null: false
+      add :inventory_id, references(:inventories), null: false
 
       timestamps()
     end
